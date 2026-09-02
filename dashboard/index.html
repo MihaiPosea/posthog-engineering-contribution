@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PostHog — Engineering Contribution</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="hdr">
+    <div class="hdr-actions">
+      <button class="btn" id="weightsBtn" aria-expanded="false">
+        <span class="ico">◧</span> Weighting: <b id="weightsLabel">Balanced</b>
+      </button>
+      <button class="btn ghost" id="methodBtn">Method</button>
+      <div class="pop" id="weightsPop" hidden>
+        <div class="pop-hd"><span>What counts as impact?</span><button class="link-btn" id="resetBtn">reset</button></div>
+        <p class="pop-hint">There is no single right answer. Set the weights — the ranking re-sorts instantly.</p>
+        <div class="presets" id="presets"></div>
+        <div class="sliders" id="sliders"></div>
+        <div class="pop-foot">Score = Σ(weight × percentile) ÷ Σ(weight)</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="panel board">
+      <div class="panel-hd">
+        <h2>Top 5 <span class="muted" id="scoreName">Contribution Score</span></h2>
+        <span class="muted small" id="rankNote"></span>
+      </div>
+      <div class="cards" id="cards"></div>
+      <div class="runners" id="runners"></div>
+    </section>
+
+    <aside class="panel detail">
+      <div id="insHd"></div>
+      <div class="sec chartsec">
+        <div class="chart-wrap"><div id="radarRoot"></div></div>
+        <div class="chart-side" id="mathRoot"></div>
+      </div>
+      <div id="insRest"></div>
+    </aside>
+  </main>
+</div>
+
+<div class="tooltip" id="tip" hidden></div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-card">
+    <div class="modal-hd"><h2>How the Contribution Score is built</h2><button class="btn ghost" id="modalClose">close</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script src="vendor/react.js"></script>
+<script src="vendor/react-dom.js"></script>
+<script src="vendor/prop-types.js"></script>
+<script src="vendor/recharts.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

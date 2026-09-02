@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,xcolor,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\title{\textbf{PostHog Engineering Impact Model}\\[2pt]\large Weave Takehome --- Scoring Specification}
+\author{}
+\date{90-day window: 2026-06-04 \textendash{} 2026-09-02}
+
+\newcommand{\pct}{\operatorname{pct}}
+\newcommand{\clampx}{\operatorname{clamp}}
+
+\begin{document}
+\maketitle
+\vspace{-2.2em}
+
+\section*{0. Attribution}
+\[ \mathrm{DRI}(p) \;=\; \mathrm{assignee}_0(p)\;\;??\;\;\mathrm{author}(p) \]
+PostHog's PR template states: \emph{``If a human directed this work, assign them as the PR assignee (the DRI).''}
+Bot-authored PRs carry the real engineer as assignee, so author-only attribution would credit
+\texttt{posthog[bot]} and lose the engineer.
+
+\textbf{Exclusions.} A PR whose DRI resolves to a bot (fully autonomous, unassigned) is removed from
+person-scoring and reported only as an org-level statistic.
+
+\textbf{Eligibility.} Engineer $e$ is rankable iff
+$\;|\{p : \mathrm{DRI}(p)=e,\ \text{merged}\}| \ge 5\;$ or $\;|\mathrm{reviews}(e)| \ge 10$.
+
+\section*{1. Per-PR weight}
+Every dimension consumes $W$, never a raw count.
+\[ W(p) \;=\; C\big(s(p)\big)\cdot A\big(a(p)\big)\cdot G(p) \]
+
+\begin{tabular}{@{}llc@{}}
+\toprule
+\textbf{Factor} & \textbf{Definition} & \textbf{Range}\\
+\midrule
+$C$ \emph{centrality} & $C(s)=0.6+1.4\,\pct\!\big(\kappa(s)\big)$, \; $\kappa(s)=|\{\text{distinct human DRIs shipping into } s\}|$ & $[0.6,\,2.0]$\\
+$A$ \emph{autonomy} & $1.0$ if assisted / human-driven; \; $0.5$ if fully autonomous & $[0.5,\,1.0]$\\
+$G$ \emph{substance} & $0.4$ if $(\mathrm{add}+\mathrm{del})<10 \wedge \mathrm{files}\le 1$; else $1.0$ & $[0.4,\,1.0]$\\
+\bottomrule
+\end{tabular}
+
+\medskip
+\noindent Scope $s(p)$ is parsed from the conventional-commit title \texttt{type(scope): description},
+used on effectively 100\% of PostHog PRs. \textbf{Blast radius is a multiplier, not a slider} --- this is
+what prevents ``Feature Delivery'' from collapsing into a PR count.
+
+\section*{2. The six dimensions}
+
+\subsection*{\textcircled{1} Feature Delivery}
+\[ \mathrm{FD}(e)=\sum_{\substack{p:\ \mathrm{DRI}(p)=e\\ \mathrm{type}(p)=\texttt{feat}}} W(p) \]
+
+\subsection*{\textcircled{2} Reliability}
+\begin{align*}
+\mathrm{FX}(e)&=\sum_{\mathrm{type}(p)\in\{\texttt{fix},\texttt{perf}\}} W(p)\\[2pt]
+\mathrm{churn}(e)&=\frac{\big|\{p:\mathrm{type}(p)=\texttt{feat},\ \exists\,q\ \mathrm{type}(q)=\texttt{fix},\ s(q)=s(p),\ 0<t_q-t_p\le 14\mathrm{d}\}\big|}{\big|\{p:\mathrm{type}(p)=\texttt{feat}\}\big|}\\[2pt]
+Q(e)&=\clampx\!\big(1+\mathrm{median}(\mathrm{churn})-\mathrm{churn}(e)\;-\;0.15\,|\mathrm{reverts}(e)|,\;0.5,\;1.5\big)\\[2pt]
+\mathrm{REL}(e)&=\mathrm{FX}(e)\cdot Q(e)
+\end{align*}
+\emph{Caveat surfaced in the UI:} a fix landing after a feature in the same scope is a \textbf{proxy} for
+rework, not proof of regression. Reverts (title \texttt{Revert "..."} matching one of $e$'s merged PRs)
+are the hard signal.
+
+\subsection*{\textcircled{3} Review Leverage}
+Human reviews only --- all bot reviewers (\texttt{greptile}, \texttt{copilot}, \texttt{stamphog},
+\texttt{codex}, \texttt{graphite-app}, \ldots) are filtered entirely; self-reviews excluded.
+\begin{align*}
+\mathrm{Lat}(e)&=\clampx\!\left(\frac{\mathrm{median}(\ell)}{\ell(e)},\,0.5,\,1.5\right),\quad
+\ell(e)=\mathrm{median}\big(t_{\text{first review by }e}-t_{\text{PR opened}}\big)\\[2pt]
+\mathrm{LEV}(e)&=\sqrt{\,\underbrace{|\{\mathrm{DRI}(p):e\text{ reviewed }p\}|}_{\text{distinct authors unblocked}}\;\times\;\underbrace{|\{p:e\text{ reviewed }p\}|}_{\text{review volume}}\,}\;\cdot\;\mathrm{Lat}(e)
+\end{align*}
+The geometric mean is the point: 100 reviews for 2 people and 3 reviews for 3 people both lose to
+broad, sustained review.
+
+\subsection*{\textcircled{4} Review Depth}
+\[
+\mathrm{eff}(r)=\mathbb{1}\big[t_{\text{last commit}}(p_r) > t_{\text{submitted}}(r)\big],\qquad
+\mathrm{DEP}(e)=\sum_{r\,\in\,\mathrm{reviews}(e)}\Big[(1+c_r)^{0.6}-1\Big]\cdot\big(1+\mathrm{eff}(r)\big)
+\]
+where $c_r$ = inline comments on review $r$. Reviews provably followed by new commits count
+\textbf{double}; the $0.6$ exponent gives diminishing returns so one nitpick storm cannot dominate.
+Reported alongside as a plain rate: \emph{``71\% of their reviews were followed by new commits.''}
+
+\subsection*{\textcircled{5} Ownership \& Bus Factor}
+\[
+\sigma(e,s)=\frac{\sum_{p:\,\mathrm{DRI}(p)=e,\;s(p)=s} W(p)}{\sum_{p:\,s(p)=s} W(p)},
+\qquad
+\mathrm{OWN}(e)=\sum_{s\,:\,\sigma(e,s)\ge 0.25}\sigma(e,s)\cdot\kappa(s)
+\]
+\textbf{Key-person flag:} $\sigma(e,s)\ge 0.5 \;\wedge\; |\text{contributors}(s)|\le 3$.
+Doubles as a risk readout --- who the org cannot afford to lose.
+
+\subsection*{\textcircled{6} Agent Leverage}
+\[ \mathrm{AGT}(e)=Q(e)\sum_{\substack{p:\ \mathrm{DRI}(p)=e\\ a(p)\,\in\,\{\text{assisted},\ \text{autonomous},\ \text{unspecified}\}}} W(p) \]
+Encodes \texttt{AI\_POLICY.md} directly --- \emph{``the key difference is that they're driving the AI,
+not the other way around.''} Volume through agents counts only when $Q(e)$ confirms the work held up.
+
+\section*{3. Normalization and final score}
+Each raw dimension is mapped to its \textbf{percentile rank within the eligible cohort}, scaled to
+$[0,100]$ --- percentile rather than $z$-score because the distribution is heavily right-skewed.
+Raw values are displayed beside every percentile.
+\[ \boxed{\;\mathrm{Score}(e)\;=\;\frac{\sum_{d=1}^{6} w_d\,\mathrm{Norm}_d(e)}{\sum_{d=1}^{6} w_d}\;,\qquad w_d\in[0,5]\;} \]
+
+\section*{4. Presets}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Preset} & \textcircled{1} Feat & \textcircled{2} Rel & \textcircled{3} Lev & \textcircled{4} Depth & \textcircled{5} Own & \textcircled{6} Agent\\
+\midrule
+Balanced \emph{(default)} & 3 & 3 & 3 & 3 & 3 & 3\\
+Ship features & 5 & 2 & 2 & 1 & 2 & 3\\
+Stability first & 1 & 5 & 3 & 4 & 3 & 2\\
+Force multipliers & 1 & 2 & 5 & 5 & 2 & 2\\
+Key-person risk & 3 & 3 & 1 & 1 & 5 & 1\\
+\bottomrule
+\end{tabular}
+
+\medskip
+\noindent\textbf{Advanced (collapsed).} Per-work-type multipliers for
+\texttt{feat}/\texttt{fix}/\texttt{perf}/\texttt{refactor}/\texttt{chore}, default $1.0$.
+
+\section*{5. Open decisions}
+\begin{enumerate}[leftmargin=*]
+  \item Churn window $=14$d. Shorter (7d) is a tighter causal claim; longer (30d) picks up unrelated fixes.
+  \item Blast radius stays a multiplier inside \textcircled{1}\textcircled{2}, or is promoted to a seventh slider.
+\end{enumerate}
+
+\end{document}

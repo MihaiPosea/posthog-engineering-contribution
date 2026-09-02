@@ -1,0 +1,960 @@
+{
+  "meta": {
+    "repo": "PostHog/posthog",
+    "window_start": "2026-06-04",
+    "window_end": "2026-09-02",
+    "score_name": "Contribution Score",
+    "merged_prs": 14531,
+    "bot_authored_prs": 2140,
+    "unattributed_prs": 890,
+    "human_reviews": 18400,
+    "bot_reviews": 24100,
+    "eligible_engineers": 180,
+    "counter_metrics": {
+      "revert_pct": 0.2,
+      "pr_lines_p50": 144,
+      "pr_lines_p90": 1432
+    },
+    "generated_at": "2026-09-02T18:00:00Z",
+    "MOCK": true
+  },
+  "dimensions": [
+    {
+      "key": "feature",
+      "label": "Feature Delivery",
+      "default_weight": 3,
+      "blurb": "New capability shipped, weighted by how central the touched code is.",
+      "formula": "\u03a3 W(pr) over merged feat PRs where DRI = engineer"
+    },
+    {
+      "key": "reliability",
+      "label": "Reliability",
+      "default_weight": 3,
+      "blurb": "Fix/perf work delivered, scaled by whether their own features stay fixed.",
+      "formula": "\u03a3 W(pr) over fix+perf PRs \u00d7 Q(e); Q = shrunk churn-quality factor"
+    },
+    {
+      "key": "blast",
+      "label": "Blast Radius",
+      "default_weight": 3,
+      "blurb": "How much of the load-bearing, widely-shared code they operate across.",
+      "formula": "\u03a3 log2(1+\u03ba(d)) over dirs d they touch where \u03ba(d) > median"
+    },
+    {
+      "key": "leverage",
+      "label": "Review Leverage",
+      "default_weight": 3,
+      "blurb": "How many different engineers they unblock, and how fast.",
+      "formula": "\u221a(distinct_authors \u00d7 reviews) \u00d7 latency factor"
+    },
+    {
+      "key": "depth",
+      "label": "Review Depth",
+      "default_weight": 3,
+      "blurb": "Whether their reviews actually changed the code.",
+      "formula": "\u03a3 [(1+inline)^0.6 \u2212 1] \u00d7 (1 + followed_by_commits)"
+    },
+    {
+      "key": "ownership",
+      "label": "Ownership & Bus Factor",
+      "default_weight": 3,
+      "blurb": "Whether they are the person holding a critical area. Two-signed: fewer defects, more continuity risk.",
+      "formula": "\u03a3 share(e,d) \u00d7 \u03ba(d) for share \u2265 0.25"
+    },
+    {
+      "key": "agent",
+      "label": "Agent Leverage",
+      "default_weight": 3,
+      "blurb": "Volume shipped through agents that actually held up.",
+      "formula": "\u03a3 W\u2080(pr) over agent-involved PRs \u00d7 Q(e); W\u2080 excludes the autonomy factor"
+    }
+  ],
+  "presets": {
+    "Balanced": {
+      "feature": 3,
+      "reliability": 3,
+      "blast": 3,
+      "leverage": 3,
+      "depth": 3,
+      "ownership": 3,
+      "agent": 3
+    },
+    "Ship features": {
+      "feature": 5,
+      "reliability": 2,
+      "blast": 3,
+      "leverage": 2,
+      "depth": 1,
+      "ownership": 2,
+      "agent": 3
+    },
+    "Stability first": {
+      "feature": 1,
+      "reliability": 5,
+      "blast": 3,
+      "leverage": 3,
+      "depth": 4,
+      "ownership": 3,
+      "agent": 2
+    },
+    "Platform": {
+      "feature": 1,
+      "reliability": 4,
+      "blast": 5,
+      "leverage": 3,
+      "depth": 3,
+      "ownership": 4,
+      "agent": 1
+    },
+    "Force multipliers": {
+      "feature": 1,
+      "reliability": 2,
+      "blast": 2,
+      "leverage": 5,
+      "depth": 5,
+      "ownership": 2,
+      "agent": 2
+    },
+    "Key-person risk": {
+      "feature": 3,
+      "reliability": 3,
+      "blast": 4,
+      "leverage": 1,
+      "depth": 1,
+      "ownership": 5,
+      "agent": 1
+    }
+  },
+  "engineers": [
+    {
+      "login": "mariusandra",
+      "avatar": "https://avatars.githubusercontent.com/u/1000?v=4",
+      "profile": "https://github.com/mariusandra",
+      "archetype": "Generalist",
+      "norm": {
+        "feature": 64.0,
+        "reliability": 70.8,
+        "blast": 94.1,
+        "leverage": 64.8,
+        "depth": 67.5,
+        "ownership": 72.6,
+        "agent": 46.8
+      },
+      "raw": {
+        "feature": 27.8,
+        "reliability": 30.8,
+        "blast": 40.9,
+        "leverage": 28.2,
+        "depth": 29.3,
+        "ownership": 31.6,
+        "agent": 20.3
+      },
+      "stats": {
+        "merged_prs": 43,
+        "feat_prs": 8,
+        "fix_prs": 17,
+        "perf_prs": 2,
+        "chore_prs": 6,
+        "reviews_given": 21,
+        "distinct_authors_unblocked": 39,
+        "median_review_latency_h": 16.4,
+        "median_cycle_time_h": 43.4,
+        "review_followup_rate": 0.32,
+        "churn_rate": 0.34,
+        "median_churn_rate": 0.19,
+        "Q": 1.28,
+        "reverts": 2,
+        "agent_assisted_prs": 44,
+        "agent_autonomous_prs": 10,
+        "agent_share": 0.21,
+        "median_pr_lines": 55,
+        "top_dirs": [
+          {
+            "dir": "ee/clickhouse",
+            "prs": 5,
+            "share": 0.17,
+            "kappa": 18
+          },
+          {
+            "dir": "rust/feature-flags",
+            "prs": 23,
+            "share": 0.16,
+            "kappa": 32
+          },
+          {
+            "dir": "products/error_tracking",
+            "prs": 14,
+            "share": 0.35,
+            "kappa": 15
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 92126,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "pauldambra",
+      "avatar": "https://avatars.githubusercontent.com/u/1001?v=4",
+      "profile": "https://github.com/pauldambra",
+      "archetype": "Tech Lead",
+      "norm": {
+        "feature": 50.0,
+        "reliability": 53.8,
+        "blast": 35.3,
+        "leverage": 40.4,
+        "depth": 76.9,
+        "ownership": 61.0,
+        "agent": 70.3
+      },
+      "raw": {
+        "feature": 21.7,
+        "reliability": 23.4,
+        "blast": 15.3,
+        "leverage": 17.6,
+        "depth": 33.4,
+        "ownership": 26.5,
+        "agent": 30.6
+      },
+      "stats": {
+        "merged_prs": 52,
+        "feat_prs": 15,
+        "fix_prs": 10,
+        "perf_prs": 4,
+        "chore_prs": 11,
+        "reviews_given": 13,
+        "distinct_authors_unblocked": 9,
+        "median_review_latency_h": 11.7,
+        "median_cycle_time_h": 11.8,
+        "review_followup_rate": 0.36,
+        "churn_rate": 0.14,
+        "median_churn_rate": 0.19,
+        "Q": 0.83,
+        "reverts": 0,
+        "agent_assisted_prs": 48,
+        "agent_autonomous_prs": 0,
+        "agent_share": 0.25,
+        "median_pr_lines": 93,
+        "top_dirs": [
+          {
+            "dir": "products/replay",
+            "prs": 17,
+            "share": 0.18,
+            "kappa": 43
+          },
+          {
+            "dir": "ee/clickhouse",
+            "prs": 10,
+            "share": 0.5,
+            "kappa": 20
+          },
+          {
+            "dir": "products/web_analytics",
+            "prs": 14,
+            "share": 0.19,
+            "kappa": 24
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 90062,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "Gilbert09",
+      "avatar": "https://avatars.githubusercontent.com/u/1002?v=4",
+      "profile": "https://github.com/Gilbert09",
+      "archetype": "Solver",
+      "norm": {
+        "feature": 96.7,
+        "reliability": 83.5,
+        "blast": 42.6,
+        "leverage": 50.8,
+        "depth": 41.5,
+        "ownership": 38.8,
+        "agent": 86.0
+      },
+      "raw": {
+        "feature": 42.0,
+        "reliability": 36.3,
+        "blast": 18.5,
+        "leverage": 22.1,
+        "depth": 18.0,
+        "ownership": 16.9,
+        "agent": 37.4
+      },
+      "stats": {
+        "merged_prs": 44,
+        "feat_prs": 19,
+        "fix_prs": 19,
+        "perf_prs": 1,
+        "chore_prs": 6,
+        "reviews_given": 63,
+        "distinct_authors_unblocked": 29,
+        "median_review_latency_h": 3.2,
+        "median_cycle_time_h": 28.7,
+        "review_followup_rate": 0.42,
+        "churn_rate": 0.13,
+        "median_churn_rate": 0.19,
+        "Q": 1.29,
+        "reverts": 2,
+        "agent_assisted_prs": 24,
+        "agent_autonomous_prs": 0,
+        "agent_share": 0.25,
+        "median_pr_lines": 443,
+        "top_dirs": [
+          {
+            "dir": "ee/clickhouse",
+            "prs": 7,
+            "share": 0.17,
+            "kappa": 12
+          },
+          {
+            "dir": "rust/feature-flags",
+            "prs": 10,
+            "share": 0.35,
+            "kappa": 3
+          },
+          {
+            "dir": "products/web_analytics",
+            "prs": 23,
+            "share": 0.3,
+            "kappa": 21
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 91581,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "rafaeelaudibert",
+      "avatar": "https://avatars.githubusercontent.com/u/1003?v=4",
+      "profile": "https://github.com/rafaeelaudibert",
+      "archetype": "Generalist",
+      "norm": {
+        "feature": 39.7,
+        "reliability": 40.8,
+        "blast": 72.3,
+        "leverage": 50.6,
+        "depth": 73.5,
+        "ownership": 58.8,
+        "agent": 64.0
+      },
+      "raw": {
+        "feature": 17.3,
+        "reliability": 17.7,
+        "blast": 31.4,
+        "leverage": 22.0,
+        "depth": 32.0,
+        "ownership": 25.6,
+        "agent": 27.8
+      },
+      "stats": {
+        "merged_prs": 37,
+        "feat_prs": 32,
+        "fix_prs": 15,
+        "perf_prs": 1,
+        "chore_prs": 6,
+        "reviews_given": 49,
+        "distinct_authors_unblocked": 19,
+        "median_review_latency_h": 16.5,
+        "median_cycle_time_h": 19.5,
+        "review_followup_rate": 0.4,
+        "churn_rate": 0.27,
+        "median_churn_rate": 0.19,
+        "Q": 1.27,
+        "reverts": 0,
+        "agent_assisted_prs": 48,
+        "agent_autonomous_prs": 6,
+        "agent_share": 0.72,
+        "median_pr_lines": 120,
+        "top_dirs": [
+          {
+            "dir": "products/replay",
+            "prs": 7,
+            "share": 0.17,
+            "kappa": 19
+          },
+          {
+            "dir": "products/error_tracking",
+            "prs": 11,
+            "share": 0.48,
+            "kappa": 28
+          },
+          {
+            "dir": "products/web_analytics",
+            "prs": 12,
+            "share": 0.34,
+            "kappa": 41
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 92011,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "tatoalo",
+      "avatar": "https://avatars.githubusercontent.com/u/1004?v=4",
+      "profile": "https://github.com/tatoalo",
+      "archetype": "Tech Lead",
+      "norm": {
+        "feature": 53.8,
+        "reliability": 46.2,
+        "blast": 81.1,
+        "leverage": 39.4,
+        "depth": 49.6,
+        "ownership": 70.8,
+        "agent": 89.6
+      },
+      "raw": {
+        "feature": 23.4,
+        "reliability": 20.1,
+        "blast": 35.3,
+        "leverage": 17.1,
+        "depth": 21.6,
+        "ownership": 30.8,
+        "agent": 39.0
+      },
+      "stats": {
+        "merged_prs": 55,
+        "feat_prs": 11,
+        "fix_prs": 9,
+        "perf_prs": 5,
+        "chore_prs": 2,
+        "reviews_given": 18,
+        "distinct_authors_unblocked": 22,
+        "median_review_latency_h": 8.8,
+        "median_cycle_time_h": 19.4,
+        "review_followup_rate": 0.33,
+        "churn_rate": 0.13,
+        "median_churn_rate": 0.19,
+        "Q": 1.07,
+        "reverts": 0,
+        "agent_assisted_prs": 10,
+        "agent_autonomous_prs": 5,
+        "agent_share": 0.2,
+        "median_pr_lines": 501,
+        "top_dirs": [
+          {
+            "dir": "frontend/src",
+            "prs": 22,
+            "share": 0.58,
+            "kappa": 40
+          },
+          {
+            "dir": "products/web_analytics",
+            "prs": 5,
+            "share": 0.57,
+            "kappa": 33
+          },
+          {
+            "dir": "rust/feature-flags",
+            "prs": 15,
+            "share": 0.47,
+            "kappa": 5
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 90087,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "ReeceJones",
+      "avatar": "https://avatars.githubusercontent.com/u/1005?v=4",
+      "profile": "https://github.com/ReeceJones",
+      "archetype": "Architect",
+      "norm": {
+        "feature": 73.3,
+        "reliability": 39.8,
+        "blast": 39.3,
+        "leverage": 54.9,
+        "depth": 43.7,
+        "ownership": 39.6,
+        "agent": 64.0
+      },
+      "raw": {
+        "feature": 31.9,
+        "reliability": 17.3,
+        "blast": 17.1,
+        "leverage": 23.9,
+        "depth": 19.0,
+        "ownership": 17.2,
+        "agent": 27.8
+      },
+      "stats": {
+        "merged_prs": 25,
+        "feat_prs": 33,
+        "fix_prs": 25,
+        "perf_prs": 1,
+        "chore_prs": 12,
+        "reviews_given": 55,
+        "distinct_authors_unblocked": 10,
+        "median_review_latency_h": 14.0,
+        "median_cycle_time_h": 54.6,
+        "review_followup_rate": 0.78,
+        "churn_rate": 0.18,
+        "median_churn_rate": 0.19,
+        "Q": 1.2,
+        "reverts": 1,
+        "agent_assisted_prs": 41,
+        "agent_autonomous_prs": 0,
+        "agent_share": 0.54,
+        "median_pr_lines": 431,
+        "top_dirs": [
+          {
+            "dir": "products/replay",
+            "prs": 23,
+            "share": 0.18,
+            "kappa": 8
+          },
+          {
+            "dir": "rust/feature-flags",
+            "prs": 24,
+            "share": 0.2,
+            "kappa": 19
+          },
+          {
+            "dir": "products/error_tracking",
+            "prs": 17,
+            "share": 0.48,
+            "kappa": 27
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 92843,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "webjunkie",
+      "avatar": "https://avatars.githubusercontent.com/u/1006?v=4",
+      "profile": "https://github.com/webjunkie",
+      "archetype": "Generalist",
+      "norm": {
+        "feature": 72.2,
+        "reliability": 63.2,
+        "blast": 88.7,
+        "leverage": 40.4,
+        "depth": 83.0,
+        "ownership": 36.9,
+        "agent": 73.5
+      },
+      "raw": {
+        "feature": 31.4,
+        "reliability": 27.5,
+        "blast": 38.6,
+        "leverage": 17.6,
+        "depth": 36.1,
+        "ownership": 16.0,
+        "agent": 32.0
+      },
+      "stats": {
+        "merged_prs": 22,
+        "feat_prs": 12,
+        "fix_prs": 25,
+        "perf_prs": 0,
+        "chore_prs": 17,
+        "reviews_given": 109,
+        "distinct_authors_unblocked": 36,
+        "median_review_latency_h": 5.9,
+        "median_cycle_time_h": 6.6,
+        "review_followup_rate": 0.47,
+        "churn_rate": 0.25,
+        "median_churn_rate": 0.19,
+        "Q": 0.9,
+        "reverts": 0,
+        "agent_assisted_prs": 26,
+        "agent_autonomous_prs": 10,
+        "agent_share": 0.75,
+        "median_pr_lines": 550,
+        "top_dirs": [
+          {
+            "dir": "posthog/models",
+            "prs": 25,
+            "share": 0.26,
+            "kappa": 43
+          },
+          {
+            "dir": "frontend/src",
+            "prs": 17,
+            "share": 0.51,
+            "kappa": 15
+          },
+          {
+            "dir": "products/replay",
+            "prs": 10,
+            "share": 0.32,
+            "kappa": 40
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 91296,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "andrewm4894",
+      "avatar": "https://avatars.githubusercontent.com/u/1007?v=4",
+      "profile": "https://github.com/andrewm4894",
+      "archetype": "Solver",
+      "norm": {
+        "feature": 48.4,
+        "reliability": 43.6,
+        "blast": 57.4,
+        "leverage": 92.3,
+        "depth": 37.6,
+        "ownership": 39.1,
+        "agent": 97.7
+      },
+      "raw": {
+        "feature": 21.0,
+        "reliability": 19.0,
+        "blast": 25.0,
+        "leverage": 40.1,
+        "depth": 16.3,
+        "ownership": 17.0,
+        "agent": 42.5
+      },
+      "stats": {
+        "merged_prs": 34,
+        "feat_prs": 19,
+        "fix_prs": 18,
+        "perf_prs": 2,
+        "chore_prs": 8,
+        "reviews_given": 116,
+        "distinct_authors_unblocked": 31,
+        "median_review_latency_h": 8.3,
+        "median_cycle_time_h": 34.1,
+        "review_followup_rate": 0.67,
+        "churn_rate": 0.26,
+        "median_churn_rate": 0.19,
+        "Q": 1.22,
+        "reverts": 2,
+        "agent_assisted_prs": 33,
+        "agent_autonomous_prs": 5,
+        "agent_share": 0.15,
+        "median_pr_lines": 72,
+        "top_dirs": [
+          {
+            "dir": "frontend/src",
+            "prs": 25,
+            "share": 0.47,
+            "kappa": 39
+          },
+          {
+            "dir": "rust/feature-flags",
+            "prs": 15,
+            "share": 0.29,
+            "kappa": 39
+          },
+          {
+            "dir": "products/error_tracking",
+            "prs": 4,
+            "share": 0.44,
+            "kappa": 28
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 91862,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "rossgray",
+      "avatar": "https://avatars.githubusercontent.com/u/1008?v=4",
+      "profile": "https://github.com/rossgray",
+      "archetype": "Tech Lead",
+      "norm": {
+        "feature": 47.2,
+        "reliability": 84.2,
+        "blast": 52.1,
+        "leverage": 84.9,
+        "depth": 86.0,
+        "ownership": 98.0,
+        "agent": 42.4
+      },
+      "raw": {
+        "feature": 20.5,
+        "reliability": 36.6,
+        "blast": 22.7,
+        "leverage": 36.9,
+        "depth": 37.4,
+        "ownership": 42.6,
+        "agent": 18.4
+      },
+      "stats": {
+        "merged_prs": 88,
+        "feat_prs": 25,
+        "fix_prs": 23,
+        "perf_prs": 6,
+        "chore_prs": 13,
+        "reviews_given": 19,
+        "distinct_authors_unblocked": 17,
+        "median_review_latency_h": 4.8,
+        "median_cycle_time_h": 31.7,
+        "review_followup_rate": 0.4,
+        "churn_rate": 0.05,
+        "median_churn_rate": 0.19,
+        "Q": 1.04,
+        "reverts": 2,
+        "agent_assisted_prs": 7,
+        "agent_autonomous_prs": 2,
+        "agent_share": 0.26,
+        "median_pr_lines": 394,
+        "top_dirs": [
+          {
+            "dir": "rust/feature-flags",
+            "prs": 20,
+            "share": 0.43,
+            "kappa": 13
+          },
+          {
+            "dir": "products/web_analytics",
+            "prs": 16,
+            "share": 0.53,
+            "kappa": 17
+          },
+          {
+            "dir": "ee/clickhouse",
+            "prs": 6,
+            "share": 0.33,
+            "kappa": 27
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 90532,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    },
+    {
+      "login": "sampennington",
+      "avatar": "https://avatars.githubusercontent.com/u/1009?v=4",
+      "profile": "https://github.com/sampennington",
+      "archetype": "Architect",
+      "norm": {
+        "feature": 63.8,
+        "reliability": 47.6,
+        "blast": 91.8,
+        "leverage": 35.4,
+        "depth": 70.2,
+        "ownership": 76.8,
+        "agent": 67.2
+      },
+      "raw": {
+        "feature": 27.7,
+        "reliability": 20.7,
+        "blast": 39.9,
+        "leverage": 15.4,
+        "depth": 30.5,
+        "ownership": 33.4,
+        "agent": 29.2
+      },
+      "stats": {
+        "merged_prs": 79,
+        "feat_prs": 15,
+        "fix_prs": 23,
+        "perf_prs": 1,
+        "chore_prs": 5,
+        "reviews_given": 102,
+        "distinct_authors_unblocked": 12,
+        "median_review_latency_h": 5.1,
+        "median_cycle_time_h": 54.6,
+        "review_followup_rate": 0.84,
+        "churn_rate": 0.34,
+        "median_churn_rate": 0.19,
+        "Q": 1.07,
+        "reverts": 1,
+        "agent_assisted_prs": 21,
+        "agent_autonomous_prs": 0,
+        "agent_share": 0.34,
+        "median_pr_lines": 124,
+        "top_dirs": [
+          {
+            "dir": "products/error_tracking",
+            "prs": 21,
+            "share": 0.34,
+            "kappa": 20
+          },
+          {
+            "dir": "products/replay",
+            "prs": 19,
+            "share": 0.56,
+            "kappa": 16
+          },
+          {
+            "dir": "frontend/src",
+            "prs": 6,
+            "share": 0.34,
+            "kappa": 5
+          }
+        ],
+        "key_person_flags": []
+      },
+      "why": [
+        "Unblocked N different engineers with M human reviews at an H-hour median response.",
+        "X% of their reviews were followed by new commits."
+      ],
+      "evidence_prs": [
+        {
+          "n": 90708,
+          "title": "feat(scope): example change",
+          "type": "feat",
+          "dir": "products/replay",
+          "url": "https://github.com/PostHog/posthog/pull/92841",
+          "merged": "2026-08-14",
+          "lines": 340,
+          "kappa": 38,
+          "W": 1.62,
+          "why": "highest-blast-radius feature shipped"
+        }
+      ]
+    }
+  ]
+}

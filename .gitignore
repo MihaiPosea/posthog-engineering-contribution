@@ -1,0 +1,6 @@
+data/*.ndjson
+data/*.log
+data/cursor.txt
+data/*_done.txt
+data/*.graphql
+formula_render.html
