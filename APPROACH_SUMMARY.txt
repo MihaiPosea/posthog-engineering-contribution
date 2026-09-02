@@ -1,0 +1,99 @@
+WHAT I MEAN BY "IMPACT"
+
+Counting PRs at PostHog isn't just crude, it's actively wrong. In the 90-day window they merged
+14,546 PRs (~340/day). Around 70% are now agent-opened, and the single highest-volume account
+merged 1,472 FULLY AUTONOMOUS PRs. Any count-based metric crowns whoever runs the biggest agent
+fleet. PostHog say this themselves: "More PRs isn't a good thing in and of itself."
+
+So the model asks a different question, which is the one their own Desktop positioning names:
+"Code review can tell you the diff looks right, but not whether the change did something
+meaningful." Of the ~5,000 PRs merged this month, which ones did something, and who drove them?
+
+ATTRIBUTION (the part most approaches would get wrong)
+
+At PostHog, agents run under human GitHub tokens, so `author` is not merely incomplete, it is
+misleading. Their PR template states the directing human should be the assignee ("the DRI"), so:
+
+    DRI = first assignee, falling back to author
+
+Of 1,116 bot-authored PRs, 231 carried a human assignee and were re-credited to the real engineer;
+the other 885 were fully autonomous with no assignee and are excluded from person-scoring entirely.
+Fully autonomous PRs never count as personal delivery - they are routed exclusively to the Agent
+Leverage dimension. 57% of all reviews are bots (Greptile, Copilot, StampHog, Codex); all 28,850 are
+discarded, and only the 30,257 human reviews score.
+
+THE SEVEN DIMENSIONS
+
+Every one consumes a WEIGHTED PR, never a count:
+
+  W = C x A x S
+    C  centrality 0.6-2.0, from the number of distinct engineers who also edit that directory
+    A  autonomy: 1.0 human-driven/agent-assisted, 0.5 fully autonomous
+    S  size, log-scaled on effective lines with generated files stripped, capped at 1.4 and
+       taking a 30% haircut above 1,500 lines - PostHog's own p90, past which they say review
+       quality drops
+
+  1 Feature Delivery      new capability, weighted by how load-bearing the code is
+  2 Reliability           fix/perf work, scaled by whether their own features stayed fixed
+  3 Blast Radius          how much of the widely-shared code they operate across
+  4 Review Leverage       how many DIFFERENT engineers they unblock, and how fast
+                          = sqrt(distinct authors x reviews) x latency factor, so 100 reviews for
+                            2 people and 3 reviews for 3 people both lose to broad, sustained review
+  5 Review Depth          whether reviews actually changed the code - inline comments, with reviews
+                          followed by new commits counted double
+  6 Ownership/Bus Factor  two-signed: rewards holding a critical area AND flags the continuity risk
+  7 Agent Leverage        volume shipped through agents THAT HELD UP (scaled by rework quality)
+
+Each raw dimension becomes a percentile rank within the eligible cohort (139 engineers with >=5
+merged PRs or >=10 human reviews) - percentile not z-score, because the distributions are heavily
+right-skewed. Contribution Score = sum(w x pctl) / sum(w), computed live in the browser.
+
+WHY IT'S INTERACTIVE
+
+There is no single right answer to "what is impact" - it depends on what the org needs right now.
+So the seven weights ARE the interface. Six presets (Ship features, Stability first, Platform,
+Force multipliers, Key-person risk, Balanced) re-rank instantly. Under Force multipliers a Tech Lead
+takes #1; under Platform a different profile surfaces. The default ranking isn't the point; the
+point is that a leader can ask THEIR question and see who answers it.
+
+GROUNDING
+
+Deliberately built on what practitioners actually argue. SPACE is the only peer-reviewed source that
+explicitly licenses code-review velocity as individually attributable, which is why review is two of
+the seven dimensions. Nagappan & Ball (ICSE 2005) found absolute churn predicts defects at R2=0.05
+while RELATIVE churn hits R2=0.81 - that is the case for normalising everything. I avoided naming
+the composite "Impact" because Abi Noda's "five flawed metrics" names git-derived per-person scores
+called exactly that as the canonical bad metric; his other objection is opacity, so the full formula
+is on the page and in the repo.
+
+I also read PostHog's own handbook, which already documents how they use Weave: "Data in Weave is
+not the decision-maker for whether someone is succeeding in their role... some people with low PR
+output are very valuable." The dashboard is built to be exactly that - a conversation starter with
+its reasoning exposed, not a verdict.
+
+VALIDATION (the "can we validate the findings" criterion)
+
+Every number on screen is traceable: hover any figure for its formula, raw value and cohort context;
+the score shows its own arithmetic (weight x percentile / sum, summing to the total); each engineer
+links four real PRs backing the headline claims.
+
+I verified the pipeline end-to-end rather than trusting it. All 139 engineers x 9 stat fields (1,251
+values) were recomputed from the raw API pull by a SEPARATE code path that never imports the
+aggregation script: zero mismatches. Two independent sanity checks against PostHog's own published
+figures: my PR-size p50 is 143 vs their published 144, and my revert rate is 0.08% vs their ~0.2%.
+
+HONEST CAVEATS (also surfaced in the UI)
+
+- Rework rate is a proxy. A fix touching a file this feature changed within 14 days is not proof of
+  a regression, and at 160 merges/day with mandated PR stacking the absolute rate reads high (80%
+  cohort median). It works as a RELATIVE discriminator, which is all the quality factor uses it for.
+- Ownership is two-signed by design - high concentration means both value and key-person risk.
+- File lists are capped at 20 per PR by the API pull; very large PRs are approximated from totals.
+- Work that never becomes a PR - design, incident response, mentoring, support load - is invisible
+  to any repo-derived model, including this one. PostHog say this about Weave themselves.
+
+STACK
+
+Static single page, vanilla JS + Recharts, no backend and no runtime API calls. One 336KB JSON
+payload computed once by aggregate.py from 14,546 merged PRs and their file lists, pulled via the
+GitHub GraphQL API (day-sharded, resumable, parallelised). Cold load under 1s.
