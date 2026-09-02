@@ -13,3 +13,4 @@ data/scores_intermediate.json
 formula_render.html
 dashboard/.vercel
 .DS_Store
+*.bak
