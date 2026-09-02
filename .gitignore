@@ -1,6 +1,15 @@
+# Agent transcripts - kept locally for the submission form, not published
+sessions/
+
+# Raw API pulls (14.5k PRs) - regenerate with data/pull.sh + data/pull_files.sh
 data/*.ndjson
 data/*.log
 data/cursor.txt
 data/*_done.txt
 data/*.graphql
+data/scores_intermediate.json
+
+# Local artifacts
 formula_render.html
+dashboard/.vercel
+.DS_Store
