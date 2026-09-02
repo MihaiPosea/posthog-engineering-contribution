@@ -284,7 +284,7 @@ for login, e in elig.items():
     if e['feat']: why.append(f"Shipped {len(e['feat'])} features; "
                              + (f"rework rate {own_churn:.0%} vs {M_CHURN:.0%} cohort median." if own_churn is not None else "."))
     if e['auto_only']: why.append(f"Runs an agent fleet: {len(e['auto_only'])} fully-autonomous PRs merged under their account — counted as Agent Leverage, not personal delivery.")
-    elif e['agent']: why.append(f"{len(e['agent'])} of {len(e['all'])} PRs agent-assisted ({100*len(e['agent'])/max(1,len(e['all'])):.0f}%), quality factor Q={q:.2f}.")
+    elif e['agent']: why.append(f"{len(e['agent'])} of {len(e['all'])} PRs agent-assisted ({100*len(e['agent'])/max(1,len(e['all'])+len(e['auto_only'])):.0f}%), quality factor Q={q:.2f}.")
     if flags: why.append(f"Key-person risk: sole maintainer of {flags[0]['dir']} ({flags[0]['share']:.0%} of its work, {flags[0]['contributors']} contributors).")
     engineers.append({
       "login":login, "avatar":f"https://github.com/{login}.png?size=120",
@@ -300,7 +300,8 @@ for login, e in elig.items():
         "agent_assisted_prs":sum(1 for p in e['agent'] if p.get('auto')=='assisted'),
         "agent_autonomous_prs":len(e['auto_only']),
         "autonomous_excluded_from_delivery":len(e['auto_only']),
-        "agent_share":round(len(e['agent'])/max(1,len(e['all'])),2),
+        "dri_prs_total":len(e['all'])+len(e['auto_only']),
+        "agent_share":round(len(e['agent'])/max(1,len(e['all'])+len(e['auto_only'])),2),
         "median_pr_lines":int(st.median([p['_L'] for p in e['all']])) if e['all'] else 0,
         "top_dirs":[{"dir":d,"weighted_prs":round(w,1),
                      "share":round(w/dir_total[d],2) if dir_total.get(d) else None,

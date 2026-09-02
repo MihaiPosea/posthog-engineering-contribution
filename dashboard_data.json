@@ -18,7 +18,7 @@
    "median_churn": 0.8,
    "median_review_latency_h": 9.7
   },
-  "generated_at": "2026-09-02T18:25:51Z"
+  "generated_at": "2026-09-02T18:27:56Z"
  },
  "dimensions": [
   {
@@ -169,7 +169,8 @@
     "agent_assisted_prs": 380,
     "agent_autonomous_prs": 19,
     "autonomous_excluded_from_delivery": 19,
-    "agent_share": 0.84,
+    "dri_prs_total": 496,
+    "agent_share": 0.8,
     "median_pr_lines": 108,
     "top_dirs": [
      {
@@ -297,7 +298,8 @@
     "agent_assisted_prs": 612,
     "agent_autonomous_prs": 1472,
     "autonomous_excluded_from_delivery": 1472,
-    "agent_share": 2.05,
+    "dri_prs_total": 2490,
+    "agent_share": 0.84,
     "median_pr_lines": 839,
     "top_dirs": [
      {
@@ -425,7 +427,8 @@
     "agent_assisted_prs": 359,
     "agent_autonomous_prs": 11,
     "autonomous_excluded_from_delivery": 11,
-    "agent_share": 0.91,
+    "dri_prs_total": 419,
+    "agent_share": 0.88,
     "median_pr_lines": 166,
     "top_dirs": [
      {
@@ -553,6 +556,7 @@
     "agent_assisted_prs": 244,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 286,
     "agent_share": 0.85,
     "median_pr_lines": 100,
     "top_dirs": [
@@ -681,6 +685,7 @@
     "agent_assisted_prs": 183,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 233,
     "agent_share": 0.79,
     "median_pr_lines": 264,
     "top_dirs": [
@@ -809,7 +814,8 @@
     "agent_assisted_prs": 260,
     "agent_autonomous_prs": 4,
     "autonomous_excluded_from_delivery": 4,
-    "agent_share": 0.86,
+    "dri_prs_total": 311,
+    "agent_share": 0.85,
     "median_pr_lines": 183,
     "top_dirs": [
      {
@@ -937,7 +943,8 @@
     "agent_assisted_prs": 196,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.9,
+    "dri_prs_total": 221,
+    "agent_share": 0.89,
     "median_pr_lines": 152,
     "top_dirs": [
      {
@@ -1065,6 +1072,7 @@
     "agent_assisted_prs": 219,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
+    "dri_prs_total": 274,
     "agent_share": 0.81,
     "median_pr_lines": 190,
     "top_dirs": [
@@ -1193,7 +1201,8 @@
     "agent_assisted_prs": 82,
     "agent_autonomous_prs": 23,
     "autonomous_excluded_from_delivery": 23,
-    "agent_share": 0.63,
+    "dri_prs_total": 190,
+    "agent_share": 0.55,
     "median_pr_lines": 151,
     "top_dirs": [
      {
@@ -1321,7 +1330,8 @@
     "agent_assisted_prs": 132,
     "agent_autonomous_prs": 3,
     "autonomous_excluded_from_delivery": 3,
-    "agent_share": 0.75,
+    "dri_prs_total": 183,
+    "agent_share": 0.74,
     "median_pr_lines": 208,
     "top_dirs": [
      {
@@ -1449,7 +1459,8 @@
     "agent_assisted_prs": 127,
     "agent_autonomous_prs": 3,
     "autonomous_excluded_from_delivery": 3,
-    "agent_share": 0.95,
+    "dri_prs_total": 140,
+    "agent_share": 0.93,
     "median_pr_lines": 152,
     "top_dirs": [
      {
@@ -1577,6 +1588,7 @@
     "agent_assisted_prs": 152,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 162,
     "agent_share": 0.94,
     "median_pr_lines": 159,
     "top_dirs": [
@@ -1705,6 +1717,7 @@
     "agent_assisted_prs": 131,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 147,
     "agent_share": 0.89,
     "median_pr_lines": 241,
     "top_dirs": [
@@ -1839,7 +1852,8 @@
     "agent_assisted_prs": 182,
     "agent_autonomous_prs": 6,
     "autonomous_excluded_from_delivery": 6,
-    "agent_share": 0.99,
+    "dri_prs_total": 195,
+    "agent_share": 0.96,
     "median_pr_lines": 155,
     "top_dirs": [
      {
@@ -1967,7 +1981,8 @@
     "agent_assisted_prs": 184,
     "agent_autonomous_prs": 3,
     "autonomous_excluded_from_delivery": 3,
-    "agent_share": 0.93,
+    "dri_prs_total": 205,
+    "agent_share": 0.91,
     "median_pr_lines": 357,
     "top_dirs": [
      {
@@ -2095,6 +2110,7 @@
     "agent_assisted_prs": 93,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 116,
     "agent_share": 0.8,
     "median_pr_lines": 300,
     "top_dirs": [
@@ -2223,6 +2239,7 @@
     "agent_assisted_prs": 108,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 129,
     "agent_share": 0.84,
     "median_pr_lines": 270,
     "top_dirs": [
@@ -2351,6 +2368,7 @@
     "agent_assisted_prs": 118,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 120,
     "agent_share": 0.98,
     "median_pr_lines": 217,
     "top_dirs": [
@@ -2479,7 +2497,8 @@
     "agent_assisted_prs": 105,
     "agent_autonomous_prs": 19,
     "autonomous_excluded_from_delivery": 19,
-    "agent_share": 0.9,
+    "dri_prs_total": 157,
+    "agent_share": 0.79,
     "median_pr_lines": 70,
     "top_dirs": [
      {
@@ -2607,7 +2626,8 @@
     "agent_assisted_prs": 124,
     "agent_autonomous_prs": 3,
     "autonomous_excluded_from_delivery": 3,
-    "agent_share": 0.88,
+    "dri_prs_total": 147,
+    "agent_share": 0.86,
     "median_pr_lines": 128,
     "top_dirs": [
      {
@@ -2735,6 +2755,7 @@
     "agent_assisted_prs": 159,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 168,
     "agent_share": 0.95,
     "median_pr_lines": 160,
     "top_dirs": [
@@ -2863,7 +2884,8 @@
     "agent_assisted_prs": 151,
     "agent_autonomous_prs": 3,
     "autonomous_excluded_from_delivery": 3,
-    "agent_share": 0.94,
+    "dri_prs_total": 166,
+    "agent_share": 0.93,
     "median_pr_lines": 175,
     "top_dirs": [
      {
@@ -2991,7 +3013,8 @@
     "agent_assisted_prs": 15,
     "agent_autonomous_prs": 6,
     "autonomous_excluded_from_delivery": 6,
-    "agent_share": 0.08,
+    "dri_prs_total": 284,
+    "agent_share": 0.07,
     "median_pr_lines": 123,
     "top_dirs": [
      {
@@ -3119,6 +3142,7 @@
     "agent_assisted_prs": 124,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 143,
     "agent_share": 0.87,
     "median_pr_lines": 198,
     "top_dirs": [
@@ -3247,7 +3271,8 @@
     "agent_assisted_prs": 96,
     "agent_autonomous_prs": 14,
     "autonomous_excluded_from_delivery": 14,
-    "agent_share": 1.03,
+    "dri_prs_total": 121,
+    "agent_share": 0.91,
     "median_pr_lines": 130,
     "top_dirs": [
      {
@@ -3375,7 +3400,8 @@
     "agent_assisted_prs": 127,
     "agent_autonomous_prs": 3,
     "autonomous_excluded_from_delivery": 3,
-    "agent_share": 0.93,
+    "dri_prs_total": 143,
+    "agent_share": 0.91,
     "median_pr_lines": 208,
     "top_dirs": [
      {
@@ -3503,6 +3529,7 @@
     "agent_assisted_prs": 62,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 81,
     "agent_share": 0.77,
     "median_pr_lines": 134,
     "top_dirs": [
@@ -3631,6 +3658,7 @@
     "agent_assisted_prs": 82,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 113,
     "agent_share": 0.73,
     "median_pr_lines": 169,
     "top_dirs": [
@@ -3759,7 +3787,8 @@
     "agent_assisted_prs": 104,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
-    "agent_share": 1.01,
+    "dri_prs_total": 107,
+    "agent_share": 0.99,
     "median_pr_lines": 149,
     "top_dirs": [
      {
@@ -3887,7 +3916,8 @@
     "agent_assisted_prs": 75,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
-    "agent_share": 0.8,
+    "dri_prs_total": 98,
+    "agent_share": 0.79,
     "median_pr_lines": 233,
     "top_dirs": [
      {
@@ -4015,7 +4045,8 @@
     "agent_assisted_prs": 186,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.9,
+    "dri_prs_total": 209,
+    "agent_share": 0.89,
     "median_pr_lines": 160,
     "top_dirs": [
      {
@@ -4143,7 +4174,8 @@
     "agent_assisted_prs": 100,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
-    "agent_share": 0.78,
+    "dri_prs_total": 133,
+    "agent_share": 0.77,
     "median_pr_lines": 195,
     "top_dirs": [
      {
@@ -4271,7 +4303,8 @@
     "agent_assisted_prs": 115,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.8,
+    "dri_prs_total": 146,
+    "agent_share": 0.79,
     "median_pr_lines": 112,
     "top_dirs": [
      {
@@ -4399,6 +4432,7 @@
     "agent_assisted_prs": 57,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
+    "dri_prs_total": 99,
     "agent_share": 0.59,
     "median_pr_lines": 93,
     "top_dirs": [
@@ -4527,6 +4561,7 @@
     "agent_assisted_prs": 74,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 90,
     "agent_share": 0.82,
     "median_pr_lines": 179,
     "top_dirs": [
@@ -4655,6 +4690,7 @@
     "agent_assisted_prs": 75,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 97,
     "agent_share": 0.77,
     "median_pr_lines": 86,
     "top_dirs": [
@@ -4783,6 +4819,7 @@
     "agent_assisted_prs": 59,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 82,
     "agent_share": 0.72,
     "median_pr_lines": 181,
     "top_dirs": [
@@ -4911,7 +4948,8 @@
     "agent_assisted_prs": 69,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
-    "agent_share": 0.87,
+    "dri_prs_total": 84,
+    "agent_share": 0.85,
     "median_pr_lines": 216,
     "top_dirs": [
      {
@@ -5039,6 +5077,7 @@
     "agent_assisted_prs": 110,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 133,
     "agent_share": 0.83,
     "median_pr_lines": 129,
     "top_dirs": [
@@ -5167,6 +5206,7 @@
     "agent_assisted_prs": 52,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 105,
     "agent_share": 0.5,
     "median_pr_lines": 194,
     "top_dirs": [
@@ -5295,7 +5335,8 @@
     "agent_assisted_prs": 100,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
-    "agent_share": 0.94,
+    "dri_prs_total": 111,
+    "agent_share": 0.92,
     "median_pr_lines": 81,
     "top_dirs": [
      {
@@ -5423,7 +5464,8 @@
     "agent_assisted_prs": 23,
     "agent_autonomous_prs": 3,
     "autonomous_excluded_from_delivery": 3,
-    "agent_share": 0.39,
+    "dri_prs_total": 69,
+    "agent_share": 0.38,
     "median_pr_lines": 287,
     "top_dirs": [
      {
@@ -5551,7 +5593,8 @@
     "agent_assisted_prs": 97,
     "agent_autonomous_prs": 5,
     "autonomous_excluded_from_delivery": 5,
-    "agent_share": 0.92,
+    "dri_prs_total": 116,
+    "agent_share": 0.88,
     "median_pr_lines": 156,
     "top_dirs": [
      {
@@ -5679,7 +5722,8 @@
     "agent_assisted_prs": 104,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
-    "agent_share": 0.99,
+    "dri_prs_total": 109,
+    "agent_share": 0.97,
     "median_pr_lines": 219,
     "top_dirs": [
      {
@@ -5807,6 +5851,7 @@
     "agent_assisted_prs": 14,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 80,
     "agent_share": 0.17,
     "median_pr_lines": 112,
     "top_dirs": [
@@ -5935,6 +5980,7 @@
     "agent_assisted_prs": 52,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 98,
     "agent_share": 0.53,
     "median_pr_lines": 291,
     "top_dirs": [
@@ -6084,7 +6130,8 @@
     "agent_assisted_prs": 42,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.58,
+    "dri_prs_total": 75,
+    "agent_share": 0.57,
     "median_pr_lines": 125,
     "top_dirs": [
      {
@@ -6212,7 +6259,8 @@
     "agent_assisted_prs": 82,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
-    "agent_share": 0.88,
+    "dri_prs_total": 97,
+    "agent_share": 0.87,
     "median_pr_lines": 205,
     "top_dirs": [
      {
@@ -6340,6 +6388,7 @@
     "agent_assisted_prs": 90,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 94,
     "agent_share": 0.96,
     "median_pr_lines": 232,
     "top_dirs": [
@@ -6468,7 +6517,8 @@
     "agent_assisted_prs": 30,
     "agent_autonomous_prs": 2,
     "autonomous_excluded_from_delivery": 2,
-    "agent_share": 0.48,
+    "dri_prs_total": 69,
+    "agent_share": 0.46,
     "median_pr_lines": 225,
     "top_dirs": [
      {
@@ -6596,6 +6646,7 @@
     "agent_assisted_prs": 98,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 109,
     "agent_share": 0.9,
     "median_pr_lines": 173,
     "top_dirs": [
@@ -6724,6 +6775,7 @@
     "agent_assisted_prs": 64,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
+    "dri_prs_total": 102,
     "agent_share": 0.64,
     "median_pr_lines": 297,
     "top_dirs": [
@@ -6852,6 +6904,7 @@
     "agent_assisted_prs": 137,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 176,
     "agent_share": 0.78,
     "median_pr_lines": 74,
     "top_dirs": [
@@ -6980,7 +7033,8 @@
     "agent_assisted_prs": 72,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.7,
+    "dri_prs_total": 106,
+    "agent_share": 0.69,
     "median_pr_lines": 84,
     "top_dirs": [
      {
@@ -7108,7 +7162,8 @@
     "agent_assisted_prs": 65,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.93,
+    "dri_prs_total": 72,
+    "agent_share": 0.92,
     "median_pr_lines": 863,
     "top_dirs": [
      {
@@ -7242,6 +7297,7 @@
     "agent_assisted_prs": 76,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 117,
     "agent_share": 0.65,
     "median_pr_lines": 145,
     "top_dirs": [
@@ -7370,7 +7426,8 @@
     "agent_assisted_prs": 67,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.89,
+    "dri_prs_total": 77,
+    "agent_share": 0.88,
     "median_pr_lines": 269,
     "top_dirs": [
      {
@@ -7498,7 +7555,8 @@
     "agent_assisted_prs": 84,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.79,
+    "dri_prs_total": 109,
+    "agent_share": 0.78,
     "median_pr_lines": 223,
     "top_dirs": [
      {
@@ -7626,6 +7684,7 @@
     "agent_assisted_prs": 31,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 77,
     "agent_share": 0.4,
     "median_pr_lines": 98,
     "top_dirs": [
@@ -7754,6 +7813,7 @@
     "agent_assisted_prs": 45,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 57,
     "agent_share": 0.79,
     "median_pr_lines": 171,
     "top_dirs": [
@@ -7882,6 +7942,7 @@
     "agent_assisted_prs": 72,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 80,
     "agent_share": 0.9,
     "median_pr_lines": 153,
     "top_dirs": [
@@ -8010,6 +8071,7 @@
     "agent_assisted_prs": 57,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 69,
     "agent_share": 0.83,
     "median_pr_lines": 171,
     "top_dirs": [
@@ -8138,7 +8200,8 @@
     "agent_assisted_prs": 37,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.59,
+    "dri_prs_total": 65,
+    "agent_share": 0.58,
     "median_pr_lines": 154,
     "top_dirs": [
      {
@@ -8266,6 +8329,7 @@
     "agent_assisted_prs": 1,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 103,
     "agent_share": 0.01,
     "median_pr_lines": 156,
     "top_dirs": [
@@ -8394,6 +8458,7 @@
     "agent_assisted_prs": 56,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 65,
     "agent_share": 0.86,
     "median_pr_lines": 95,
     "top_dirs": [
@@ -8522,6 +8587,7 @@
     "agent_assisted_prs": 38,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 46,
     "agent_share": 0.83,
     "median_pr_lines": 100,
     "top_dirs": [
@@ -8650,6 +8716,7 @@
     "agent_assisted_prs": 70,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 88,
     "agent_share": 0.8,
     "median_pr_lines": 130,
     "top_dirs": [
@@ -8778,6 +8845,7 @@
     "agent_assisted_prs": 18,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 34,
     "agent_share": 0.53,
     "median_pr_lines": 93,
     "top_dirs": [
@@ -8906,7 +8974,8 @@
     "agent_assisted_prs": 81,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.91,
+    "dri_prs_total": 91,
+    "agent_share": 0.9,
     "median_pr_lines": 109,
     "top_dirs": [
      {
@@ -9034,6 +9103,7 @@
     "agent_assisted_prs": 50,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 70,
     "agent_share": 0.71,
     "median_pr_lines": 464,
     "top_dirs": [
@@ -9162,7 +9232,8 @@
     "agent_assisted_prs": 45,
     "agent_autonomous_prs": 21,
     "autonomous_excluded_from_delivery": 21,
-    "agent_share": 1.32,
+    "dri_prs_total": 71,
+    "agent_share": 0.93,
     "median_pr_lines": 327,
     "top_dirs": [
      {
@@ -9290,6 +9361,7 @@
     "agent_assisted_prs": 30,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 69,
     "agent_share": 0.43,
     "median_pr_lines": 73,
     "top_dirs": [
@@ -9418,6 +9490,7 @@
     "agent_assisted_prs": 59,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 61,
     "agent_share": 0.97,
     "median_pr_lines": 96,
     "top_dirs": [
@@ -9546,6 +9619,7 @@
     "agent_assisted_prs": 0,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
+    "dri_prs_total": 73,
     "agent_share": 0.01,
     "median_pr_lines": 50,
     "top_dirs": [
@@ -9674,7 +9748,8 @@
     "agent_assisted_prs": 20,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 1.0,
+    "dri_prs_total": 22,
+    "agent_share": 0.95,
     "median_pr_lines": 252,
     "top_dirs": [
      {
@@ -9802,6 +9877,7 @@
     "agent_assisted_prs": 11,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 31,
     "agent_share": 0.35,
     "median_pr_lines": 107,
     "top_dirs": [
@@ -9930,6 +10006,7 @@
     "agent_assisted_prs": 2,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
+    "dri_prs_total": 77,
     "agent_share": 0.04,
     "median_pr_lines": 198,
     "top_dirs": [
@@ -10058,7 +10135,8 @@
     "agent_assisted_prs": 68,
     "agent_autonomous_prs": 6,
     "autonomous_excluded_from_delivery": 6,
-    "agent_share": 0.96,
+    "dri_prs_total": 83,
+    "agent_share": 0.89,
     "median_pr_lines": 220,
     "top_dirs": [
      {
@@ -10186,6 +10264,7 @@
     "agent_assisted_prs": 36,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 69,
     "agent_share": 0.52,
     "median_pr_lines": 203,
     "top_dirs": [
@@ -10314,6 +10393,7 @@
     "agent_assisted_prs": 2,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 61,
     "agent_share": 0.03,
     "median_pr_lines": 905,
     "top_dirs": [
@@ -10453,6 +10533,7 @@
     "agent_assisted_prs": 26,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 32,
     "agent_share": 0.81,
     "median_pr_lines": 364,
     "top_dirs": [
@@ -10581,6 +10662,7 @@
     "agent_assisted_prs": 62,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 65,
     "agent_share": 0.95,
     "median_pr_lines": 95,
     "top_dirs": [
@@ -10709,7 +10791,8 @@
     "agent_assisted_prs": 59,
     "agent_autonomous_prs": 21,
     "autonomous_excluded_from_delivery": 21,
-    "agent_share": 1.33,
+    "dri_prs_total": 81,
+    "agent_share": 0.99,
     "median_pr_lines": 152,
     "top_dirs": [
      {
@@ -10837,6 +10920,7 @@
     "agent_assisted_prs": 14,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 21,
     "agent_share": 0.67,
     "median_pr_lines": 133,
     "top_dirs": [
@@ -10965,6 +11049,7 @@
     "agent_assisted_prs": 26,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 27,
     "agent_share": 0.96,
     "median_pr_lines": 87,
     "top_dirs": [
@@ -11093,7 +11178,8 @@
     "agent_assisted_prs": 10,
     "agent_autonomous_prs": 7,
     "autonomous_excluded_from_delivery": 7,
-    "agent_share": 0.45,
+    "dri_prs_total": 45,
+    "agent_share": 0.38,
     "median_pr_lines": 202,
     "top_dirs": [
      {
@@ -11221,6 +11307,7 @@
     "agent_assisted_prs": 25,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 35,
     "agent_share": 0.71,
     "median_pr_lines": 109,
     "top_dirs": [
@@ -11349,6 +11436,7 @@
     "agent_assisted_prs": 3,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 13,
     "agent_share": 0.23,
     "median_pr_lines": 113,
     "top_dirs": [
@@ -11477,6 +11565,7 @@
     "agent_assisted_prs": 40,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 47,
     "agent_share": 0.85,
     "median_pr_lines": 96,
     "top_dirs": [
@@ -11605,6 +11694,7 @@
     "agent_assisted_prs": 22,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 31,
     "agent_share": 0.71,
     "median_pr_lines": 265,
     "top_dirs": [
@@ -11733,6 +11823,7 @@
     "agent_assisted_prs": 12,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 25,
     "agent_share": 0.48,
     "median_pr_lines": 158,
     "top_dirs": [
@@ -11861,6 +11952,7 @@
     "agent_assisted_prs": 17,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 25,
     "agent_share": 0.68,
     "median_pr_lines": 327,
     "top_dirs": [
@@ -11989,6 +12081,7 @@
     "agent_assisted_prs": 3,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 6,
     "agent_share": 0.5,
     "median_pr_lines": 653,
     "top_dirs": [
@@ -12117,7 +12210,8 @@
     "agent_assisted_prs": 43,
     "agent_autonomous_prs": 10,
     "autonomous_excluded_from_delivery": 10,
-    "agent_share": 0.91,
+    "dri_prs_total": 68,
+    "agent_share": 0.78,
     "median_pr_lines": 145,
     "top_dirs": [
      {
@@ -12245,7 +12339,8 @@
     "agent_assisted_prs": 17,
     "agent_autonomous_prs": 4,
     "autonomous_excluded_from_delivery": 4,
-    "agent_share": 0.91,
+    "dri_prs_total": 27,
+    "agent_share": 0.78,
     "median_pr_lines": 220,
     "top_dirs": [
      {
@@ -12373,6 +12468,7 @@
     "agent_assisted_prs": 1,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 49,
     "agent_share": 0.02,
     "median_pr_lines": 158,
     "top_dirs": [
@@ -12501,6 +12597,7 @@
     "agent_assisted_prs": 23,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 24,
     "agent_share": 0.96,
     "median_pr_lines": 172,
     "top_dirs": [
@@ -12629,6 +12726,7 @@
     "agent_assisted_prs": 16,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 22,
     "agent_share": 0.73,
     "median_pr_lines": 206,
     "top_dirs": [
@@ -12757,6 +12855,7 @@
     "agent_assisted_prs": 22,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 32,
     "agent_share": 0.69,
     "median_pr_lines": 59,
     "top_dirs": [
@@ -12885,6 +12984,7 @@
     "agent_assisted_prs": 12,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 14,
     "agent_share": 0.86,
     "median_pr_lines": 577,
     "top_dirs": [
@@ -13013,6 +13113,7 @@
     "agent_assisted_prs": 12,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 12,
     "agent_share": 1.0,
     "median_pr_lines": 126,
     "top_dirs": [
@@ -13141,6 +13242,7 @@
     "agent_assisted_prs": 9,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 10,
     "agent_share": 0.9,
     "median_pr_lines": 150,
     "top_dirs": [
@@ -13269,6 +13371,7 @@
     "agent_assisted_prs": 12,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 16,
     "agent_share": 0.75,
     "median_pr_lines": 197,
     "top_dirs": [
@@ -13397,6 +13500,7 @@
     "agent_assisted_prs": 12,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 12,
     "agent_share": 1.0,
     "median_pr_lines": 107,
     "top_dirs": [
@@ -13531,6 +13635,7 @@
     "agent_assisted_prs": 12,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 14,
     "agent_share": 0.86,
     "median_pr_lines": 337,
     "top_dirs": [
@@ -13659,6 +13764,7 @@
     "agent_assisted_prs": 8,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 9,
     "agent_share": 0.89,
     "median_pr_lines": 96,
     "top_dirs": [
@@ -13787,6 +13893,7 @@
     "agent_assisted_prs": 17,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 21,
     "agent_share": 0.81,
     "median_pr_lines": 88,
     "top_dirs": [
@@ -13915,7 +14022,8 @@
     "agent_assisted_prs": 18,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.86,
+    "dri_prs_total": 23,
+    "agent_share": 0.83,
     "median_pr_lines": 94,
     "top_dirs": [
      {
@@ -14043,6 +14151,7 @@
     "agent_assisted_prs": 18,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 24,
     "agent_share": 0.75,
     "median_pr_lines": 73,
     "top_dirs": [
@@ -14171,6 +14280,7 @@
     "agent_assisted_prs": 9,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 11,
     "agent_share": 0.82,
     "median_pr_lines": 79,
     "top_dirs": [
@@ -14299,6 +14409,7 @@
     "agent_assisted_prs": 14,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 17,
     "agent_share": 0.82,
     "median_pr_lines": 50,
     "top_dirs": [
@@ -14427,6 +14538,7 @@
     "agent_assisted_prs": 8,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 8,
     "agent_share": 1.0,
     "median_pr_lines": 63,
     "top_dirs": [
@@ -14555,6 +14667,7 @@
     "agent_assisted_prs": 19,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 19,
     "agent_share": 1.0,
     "median_pr_lines": 117,
     "top_dirs": [
@@ -14681,6 +14794,7 @@
     "agent_assisted_prs": 7,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 11,
     "agent_share": 0.64,
     "median_pr_lines": 39,
     "top_dirs": [
@@ -14809,6 +14923,7 @@
     "agent_assisted_prs": 11,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 17,
     "agent_share": 0.65,
     "median_pr_lines": 172,
     "top_dirs": [
@@ -14937,6 +15052,7 @@
     "agent_assisted_prs": 4,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 6,
     "agent_share": 0.67,
     "median_pr_lines": 175,
     "top_dirs": [
@@ -15065,6 +15181,7 @@
     "agent_assisted_prs": 9,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 10,
     "agent_share": 0.9,
     "median_pr_lines": 259,
     "top_dirs": [
@@ -15191,6 +15308,7 @@
     "agent_assisted_prs": 7,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 11,
     "agent_share": 0.64,
     "median_pr_lines": 215,
     "top_dirs": [
@@ -15319,6 +15437,7 @@
     "agent_assisted_prs": 7,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 13,
     "agent_share": 0.54,
     "median_pr_lines": 377,
     "top_dirs": [
@@ -15447,6 +15566,7 @@
     "agent_assisted_prs": 7,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 7,
     "agent_share": 1.0,
     "median_pr_lines": 158,
     "top_dirs": [
@@ -15575,6 +15695,7 @@
     "agent_assisted_prs": 2,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 2,
     "agent_share": 1.0,
     "median_pr_lines": 1048,
     "top_dirs": [
@@ -15679,6 +15800,7 @@
     "agent_assisted_prs": 10,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 12,
     "agent_share": 0.83,
     "median_pr_lines": 38,
     "top_dirs": [
@@ -15807,6 +15929,7 @@
     "agent_assisted_prs": 0,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 3,
     "agent_share": 0.0,
     "median_pr_lines": 61,
     "top_dirs": [
@@ -15921,6 +16044,7 @@
     "agent_assisted_prs": 8,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 10,
     "agent_share": 0.8,
     "median_pr_lines": 44,
     "top_dirs": [
@@ -16049,6 +16173,7 @@
     "agent_assisted_prs": 4,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 5,
     "agent_share": 0.8,
     "median_pr_lines": 39,
     "top_dirs": [
@@ -16177,6 +16302,7 @@
     "agent_assisted_prs": 0,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 5,
     "agent_share": 0.0,
     "median_pr_lines": 543,
     "top_dirs": [
@@ -16304,6 +16430,7 @@
     "agent_assisted_prs": 5,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 6,
     "agent_share": 0.83,
     "median_pr_lines": 1605,
     "top_dirs": [
@@ -16432,6 +16559,7 @@
     "agent_assisted_prs": 8,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 8,
     "agent_share": 1.0,
     "median_pr_lines": 35,
     "top_dirs": [
@@ -16560,6 +16688,7 @@
     "agent_assisted_prs": 5,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 7,
     "agent_share": 0.71,
     "median_pr_lines": 95,
     "top_dirs": [
@@ -16686,6 +16815,7 @@
     "agent_assisted_prs": 0,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 5,
     "agent_share": 0.0,
     "median_pr_lines": 75,
     "top_dirs": [
@@ -16813,7 +16943,8 @@
     "agent_assisted_prs": 9,
     "agent_autonomous_prs": 1,
     "autonomous_excluded_from_delivery": 1,
-    "agent_share": 0.91,
+    "dri_prs_total": 12,
+    "agent_share": 0.83,
     "median_pr_lines": 220,
     "top_dirs": [
      {
@@ -16941,6 +17072,7 @@
     "agent_assisted_prs": 3,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 4,
     "agent_share": 0.75,
     "median_pr_lines": 216,
     "top_dirs": [
@@ -17068,6 +17200,7 @@
     "agent_assisted_prs": 9,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 10,
     "agent_share": 0.9,
     "median_pr_lines": 157,
     "top_dirs": [
@@ -17194,6 +17327,7 @@
     "agent_assisted_prs": 8,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 10,
     "agent_share": 0.8,
     "median_pr_lines": 45,
     "top_dirs": [
@@ -17320,6 +17454,7 @@
     "agent_assisted_prs": 6,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 6,
     "agent_share": 1.0,
     "median_pr_lines": 213,
     "top_dirs": [
@@ -17448,6 +17583,7 @@
     "agent_assisted_prs": 5,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 7,
     "agent_share": 0.71,
     "median_pr_lines": 36,
     "top_dirs": [
@@ -17576,6 +17712,7 @@
     "agent_assisted_prs": 0,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 5,
     "agent_share": 0.0,
     "median_pr_lines": 11,
     "top_dirs": [
@@ -17703,6 +17840,7 @@
     "agent_assisted_prs": 6,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 6,
     "agent_share": 1.0,
     "median_pr_lines": 98,
     "top_dirs": [
@@ -17829,6 +17967,7 @@
     "agent_assisted_prs": 8,
     "agent_autonomous_prs": 0,
     "autonomous_excluded_from_delivery": 0,
+    "dri_prs_total": 9,
     "agent_share": 0.89,
     "median_pr_lines": 37,
     "top_dirs": [

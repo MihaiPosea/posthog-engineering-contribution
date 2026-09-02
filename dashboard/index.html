@@ -12,15 +12,15 @@
   <header class="hdr">
     <div class="hdr-actions">
       <button class="btn" id="weightsBtn" aria-expanded="false">
-        <span class="ico">◧</span> Weighting: <b id="weightsLabel">Balanced</b>
+        <span class="i" data-icon="sliders"></span>Weighting: <b id="weightsLabel">Balanced</b>
       </button>
-      <button class="btn ghost" id="methodBtn">Method</button>
+      <button class="btn" id="methodBtn"><span class="i" data-icon="book"></span>Method</button>
       <div class="pop" id="weightsPop" hidden>
-        <div class="pop-hd"><span>What counts as impact?</span><button class="link-btn" id="resetBtn">reset</button></div>
+        <div class="pop-hd"><span class="def" id="popHd">What counts as impact?</span><button class="link-btn" id="resetBtn">reset</button></div>
         <p class="pop-hint">There is no single right answer. Set the weights — the ranking re-sorts instantly.</p>
         <div class="presets" id="presets"></div>
         <div class="sliders" id="sliders"></div>
-        <div class="pop-foot">Score = Σ(weight × percentile) ÷ Σ(weight)</div>
+        <div class="pop-foot"><span class="def" id="popFoot">Score = Σ(weight × percentile) ÷ Σ(weight)</span></div>
       </div>
     </div>
   </header>
@@ -28,7 +28,7 @@
   <main class="main">
     <section class="panel board">
       <div class="panel-hd">
-        <h2>Top 5 <span class="muted" id="scoreName">Contribution Score</span></h2>
+        <h2>Top 5 <span class="muted def" id="scoreName">Contribution Score</span></h2>
         <span class="muted small" id="rankNote"></span>
       </div>
       <div class="cards" id="cards"></div>
@@ -37,11 +37,21 @@
 
     <aside class="panel detail">
       <div id="insHd"></div>
-      <div class="sec chartsec">
-        <div class="chart-wrap"><div id="radarRoot"></div></div>
-        <div class="chart-side" id="mathRoot"></div>
+      <nav class="tabs" id="tabs">
+        <button class="tab on" data-tab="glance"><span class="i" data-icon="eye"></span>At a glance</button>
+        <button class="tab" data-tab="detail"><span class="i" data-icon="list"></span>In detail</button>
+      </nav>
+      <div id="paneGlance">
+        <div class="sec chartsec">
+          <div class="chart-wrap"><div id="radarRoot"></div></div>
+          <div class="chart-side" id="glanceBars"></div>
+        </div>
+        <div id="glanceRest"></div>
       </div>
-      <div id="insRest"></div>
+      <div id="paneDetail" hidden>
+        <div class="sec" id="mathRoot"></div>
+        <div id="insRest"></div>
+      </div>
     </aside>
   </main>
 </div>
